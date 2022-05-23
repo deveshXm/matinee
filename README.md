@@ -31,7 +31,7 @@ npm install
 npm run build
 `
 
-#### Deploy on [Local Host](https://localhost:3000)
+#### Deploy on [Local Host](localhost:3000)
 
 `
 npm start
