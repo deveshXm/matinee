@@ -33,9 +33,10 @@ npm install
 npm run build
 ```
 
-### Requuriements before running the application
+### Requriements before running the application
 
 Make a folder named ".env.local" where you need to put all the below mentioned api keys with the exact same variable name
+<br>
 <br>
 NEXT_PUBLIC_API_KEY = API key from [TMDB](https://developers.themoviedb.org/3)
 
