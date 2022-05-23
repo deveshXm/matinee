@@ -43,7 +43,7 @@ function Row({ title, movies }: Props) {
           ref={rowRef}
         >
           {movies.map((movie) => (
-            <Thumbnail key={movie.id} movie={movie} />
+            <Thumbnail key={movie.id} movie={movie}/>
           ))}
         </div>
         <ChevronRightIcon
