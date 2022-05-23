@@ -6,7 +6,7 @@ A nextjs application to watch movies and get recommended based on your preferenc
 
 ### Api
 
-This application fetches data from [The Movie Database] (https://www.themoviedb.org/)
+This application fetches data from [The Movie Database](https://www.themoviedb.org/)
 
 #### Documentation
 
