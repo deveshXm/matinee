@@ -2,7 +2,7 @@
 
 ### About
 A nextjs application to watch movies and get recommended based on your preferences.
-[martinee](https://martinee.vercel.app/)
+[martinee](https://matinee.vercel.app/)
 
 ### Api
 
