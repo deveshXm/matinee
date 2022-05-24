@@ -22,7 +22,7 @@
   }
 
   .brand {
-    @apply relative flex w-52 transform cursor-pointer overflow-hidden rounded-lg border-[3px] border-black border-opacity-10 shadow-xl transition  duration-300 hover:scale-125 hover:border-opacity-80 hover:shadow-2xl sm:h-[20vh] sm:w-64 text-black;
+    @apply relative flex w-52 transform cursor-pointer overflow-hidden rounded-lg border-[3px] border-white border-opacity-10 shadow-xl transition  duration-300 hover:scale-125 hover:border-opacity-80 hover:shadow-2xl sm:h-[20vh] sm:w-64 text-black;
   }
 
   .genre{
