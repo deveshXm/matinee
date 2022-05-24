@@ -6,7 +6,7 @@ import Slider from '../components/Slider'
 import requests from '../utils/requests'
 import { Movie } from '../typings'
 import Row from '../components/Row'
-import Brand from '../components/Brands'
+import Genre from '../components/Genre'
 
 interface Props {
   netflixOriginals: Movie[]
@@ -39,11 +39,11 @@ Props) => {
       </Head>
       <Header />
 
-      <main className="  mt-20 relative pl-4 pb-24 lg:space-y-24 lg:pl-0 ">
+      <main className="  mt-20 pl-2.5 pb-24 lg:space-y-24 lg:pl-0 ">
         <Slider netflixOriginals={netflixOriginals} />
 
         <section className="mx-10 space-y-14">
-          <Brand />
+          <Genre />
           <Row title="Trending Now" movies={trendingNow} />
           <Row title="Top Rated" movies={topRated} />
           <Row title="Action Thrillers" movies={actionMovies} />

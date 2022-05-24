@@ -22,10 +22,14 @@
   }
 
   .brand {
-    @apply relative flex w-52 transform cursor-pointer overflow-hidden rounded-lg border-[3px] border-white border-opacity-10 shadow-xl transition  duration-300 hover:scale-125 hover:border-opacity-80 hover:shadow-2xl sm:h-[20vh] sm:w-64 text-black;
+    @apply relative flex w-52 transform cursor-pointer overflow-hidden rounded-lg border-[3px] border-white border-opacity-10 shadow-xl transition  duration-300 md:hover:scale-125 md:hover:border-opacity-80 hover:shadow-2xl sm:h-[20vh] sm:w-64 text-white md:text-black ;
   }
 
   .genre{
-    @apply  hover:z-10 items-center justify-center bg-center text-5xl font-bold hover:text-white bg-cover text-transparent
+    @apply  hover:z-10 items-center justify-center bg-center md:text-4xl font-semibold md:font-bold text-3xl md:hover:text-white bg-cover min-h-[13vh] sm:min-h-[20vh] md:text-transparent
+  }
+
+  input{
+    @apply w-full rounded bg-[#333] px-5 py-3.5 placeholder-[gray] outline-none focus:bg-[#454545]
   }
 }

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 
-function Brands() {
+function Genre() {
   return (
     <section className="max-auto mt-10 flex max-w-[1400px] flex-col items-center justify-around gap-6 px-10 ml-5 xl:flex-row ">
       <div className="brand group genre bg-[url('/images/horror.jpg')]">
@@ -23,4 +23,4 @@ function Brands() {
   )
 }
 
-export default Brands
+export default Genre

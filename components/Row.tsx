@@ -39,7 +39,7 @@ function Row({ title, movies }: Props) {
           onClick={() => handleClick('left')}
         />
         <div
-          className="flex items-center space-x-0.5 overflow-x-scroll scrollbar-hide md:space-x-4 md:p-2"
+          className="flex items-center space-x-0.5 overflow-x-scroll scrollbar-hide md:space-x-4 md:p-4"
           ref={rowRef}
         >
           {movies.map((movie) => (

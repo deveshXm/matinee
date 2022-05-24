@@ -24,7 +24,7 @@ function Slider({ netflixOriginals }: Props) {
   console.log(movie)
 
   return (
-    <section className="mx-auto mt-3 min-h-[55vh] w-[95vw]  text-white shadow-2xl hover:cursor-pointer md:h-[57vh] lg:h-[85vh]">
+    <section className="mx-auto mt-3 min-h-[35vh] w-[95vw]  text-white shadow-2xl hover:cursor-pointer sm:h-[55vh] md:h-[95vh] lg:h-[85vh]">
       <Carousel
         autoPlay
         infiniteLoop
@@ -34,8 +34,8 @@ function Slider({ netflixOriginals }: Props) {
         interval={4000}
       >
         {netflixOriginals.map((movie) => (
-          <div className="flex min-h-[55vh] flex-col space-y-2 py-1 pl-10 md:space-y-4 lg:h-[85vh] lg:justify-end lg:pb-12">
-          <div className="absolute top-0 left-0 -z-10 h-[95vh] w-screen">
+          <div className="flex min-h-[35vh] sm:min-h-[55vh] flex-col space-y-2 py-1 pl-10 md:space-y-4 lg:h-[85vh] lg:justify-end lg:pb-12">
+          <div className="absolute min-h-[35vh] top-0 left-0 -z-10 sm:min-h-[55vh] md:min-h-[95vh] w-screen">
             <Image
               layout="fill"
               src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
