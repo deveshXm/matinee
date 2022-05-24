@@ -7,7 +7,7 @@ import Link from 'next/link'
 function Header() {
 
   return (
-    <div className="fixed top-0 w-full flex px-10 z-[1000] h-[72px] items-center space-x-2 bg-black md:space-x-10 justify-between ">
+    <div className="fixed top-0 w-full flex px-10 z-[1000] h-[65px] items-center space-x-2 bg-black md:space-x-10 justify-between ">
       <div className='flex items-center'>
         <h2 className=" -mt-2 bg-gradient-to-r  from-sky-500 to-indigo-500 bg-clip-text text-3xl font-extrabold text-transparent pr-10">
         matinee
