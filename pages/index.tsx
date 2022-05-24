@@ -32,7 +32,7 @@ const Home = ({
 }: // products,
 Props) => {
   return (
-    <div className="relative h-screen bg-gray-100 scrollbar-hide overflow-y-auto">
+    <div className="relative h-screen scrollbar-hide overflow-y-auto bg-hero-pattern bg-cover bg-no-repeat">
       <Head>
         <title>matinee</title>
         <link rel="icon" href="/favicon.ico" />
