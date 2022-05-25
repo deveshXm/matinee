@@ -9,8 +9,9 @@ import Row from '../components/Row'
 import Genre from '../components/Genre'
 import useAuth from '../hooks/useAuth'
 import { useState } from 'react'
-import {modalState} from '../atoms/modalAtom'
+import {modalState, movieState} from '../atoms/modalAtom'
 import { useRecoilValue } from 'recoil'
+import Modal from '../components/Modal'
 
 
 interface Props {
@@ -38,8 +39,8 @@ const Home = ({
 Props) => {
 
   const {loading} = useAuth()
-  const setShowModal = useRecoilValue(modalState)
-  // const[setShowModal,setShowModal] = useState(false)
+  const showModal = useRecoilValue(modalState)
+
   if(loading) return null
   return (
     <div className="relative h-screen scrollbar-hide overflow-y-auto bg-hero-pattern bg-cover bg-no-repeat">
@@ -66,7 +67,7 @@ Props) => {
           <Row title="Documentaries" movies={documentaries} />
         </section>
       </main>
-      {/* {showModal && <Modal/>} */}
+      {showModal && <Modal/>}
     </div>
   )
 }
