@@ -1,12 +1,18 @@
 import React from 'react'
 import Image from 'next/image'
 import {Movie} from '../typings'
+import { useRecoilState } from 'recoil'
+import { modalState, movieState } from '../atoms/modalAtom'
 
 interface Props{
     movie:Movie
 }
 
 function Thumbnail({movie}:Props) {
+
+  const [showModal, setShowModal] = useRecoilState(modalState)
+  const [currentMovie, setCurrentMovie] = useRecoilState(movieState)
+  
   return (
     < div className={`relative h-28 min-w-[180px] cursor-pointer transition duration-200 ease-out md:h-36 md:min-w-[260px] md:hover:scale-110 md:hover:border-4 md:hover:rounded-md border-white border-2 rounded-md border-opacity-40 md:hover:border-opacity-100`}>
         <Image
