@@ -3,6 +3,7 @@ import { BellIcon, SearchIcon } from '@heroicons/react/solid'
 // import useAuth from '../hooks/useAuth'
 import Link from 'next/link'
 import useAuth from '../hooks/useAuth'
+import BasicMenu from './BasicMenu'
 // import BasicMenu from './BasicMenu'
 
 function Header() {
@@ -18,7 +19,7 @@ function Header() {
           matinee
         </h2>
 
-        {/* <BasicMenu /> */}
+        <BasicMenu />
 
         <ul className="hidden space-x-9 md:flex">
           <li className="headerLink cursor-pointer font-semibold text-white hover:text-indigo-600">
