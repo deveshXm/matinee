@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import Header from '../components/Header'
 import Slider from '../components/Slider'
 import requests from '../utils/requests'
@@ -8,7 +7,6 @@ import { Movie } from '../typings'
 import Row from '../components/Row'
 import Genre from '../components/Genre'
 import useAuth from '../hooks/useAuth'
-import { useState } from 'react'
 import {modalState, movieState} from '../atoms/modalAtom'
 import { useRecoilValue } from 'recoil'
 import Modal from '../components/Modal'
@@ -52,15 +50,11 @@ Props) => {
 
       <main className="  mt-20 pl-2.5 pb-24 lg:space-y-24 lg:pl-0 ">
         <Slider netflixOriginals={netflixOriginals} />
-
         <section className="mx-10 space-y-14">
           <Genre />
           <Row title="Trending Now" movies={trendingNow} />
           <Row title="Top Rated" movies={topRated} />
           <Row title="Action Thrillers" movies={actionMovies} />
-          {/* My List */}
-          {/* {list.length > 0 && <Row title="My List" movies={list} />} */}
-
           <Row title="Comedies" movies={comedyMovies} />
           <Row title="Scary Movies" movies={horrorMovies} />
           <Row title="Romance Movies" movies={romanceMovies} />
@@ -75,12 +69,6 @@ Props) => {
 export default Home
 
 export const getServerSideProps = async () => {
-  // const products = await getProducts(payments, {
-  //   includePrices: true,
-  //   activeOnly: true,
-  // })
-  //   .then((res) => res)
-  //   .catch((error) => console.log(error.message))
 
   const [
     netflixOriginals,
