@@ -7,6 +7,11 @@ import requests from '../utils/requests'
 import { Movie } from '../typings'
 import Row from '../components/Row'
 import Genre from '../components/Genre'
+import useAuth from '../hooks/useAuth'
+import { useState } from 'react'
+import {modalState} from '../atoms/modalAtom'
+import { useRecoilValue } from 'recoil'
+
 
 interface Props {
   netflixOriginals: Movie[]
@@ -31,6 +36,11 @@ const Home = ({
   trendingNow,
 }: // products,
 Props) => {
+
+  const {loading} = useAuth()
+  const setShowModal = useRecoilValue(modalState)
+  // const[setShowModal,setShowModal] = useState(false)
+  if(loading) return null
   return (
     <div className="relative h-screen scrollbar-hide overflow-y-auto bg-hero-pattern bg-cover bg-no-repeat">
       <Head>
@@ -56,6 +66,7 @@ Props) => {
           <Row title="Documentaries" movies={documentaries} />
         </section>
       </main>
+      {/* {showModal && <Modal/>} */}
     </div>
   )
 }
