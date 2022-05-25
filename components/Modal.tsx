@@ -3,6 +3,7 @@ import { useRecoilState } from 'recoil'
 import { modalState, movieState } from '../atoms/modalAtom'
 import ReactPlayer from 'react-player/lazy'
 import { FaPlay } from 'react-icons/fa'
+import { useRouter } from 'next/router'
 import {
   CheckIcon,
   PlusIcon,
@@ -34,6 +35,9 @@ function Modal() {
   const [addedToList, setAddedToList] = useState(false)
   const { user } = useAuth()
   const [movies, setMovies] = useState<DocumentData[] | Movie[]>([])
+  const router = useRouter()
+
+  
 
   const toastStyle = {
     background: 'white',
@@ -45,9 +49,10 @@ function Modal() {
     maxWidth: '1000px',
   }
 
+  
+
   useEffect(() => {
     if (!movie) return
-
     async function fetchMovie() {
       const data = await fetch(
         `https://api.themoviedb.org/3/${
@@ -65,6 +70,7 @@ function Modal() {
       if (data?.genres) {
         setGenres(data.genres)
       }
+
     }
 
     fetchMovie()
@@ -154,7 +160,7 @@ function Modal() {
           />
           <div className="absolute bottom-10 flex w-full items-center justify-between px-10">
             <div className="flex space-x-2">
-              <button className="flex items-center gap-x-2 rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6]">
+              <button className="flex items-center gap-x-2 rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6]" >
                 <FaPlay className="h-7 w-7 text-black" />
                 Play
               </button>
