@@ -18,6 +18,7 @@ function Slider({ netflixOriginals }: Props) {
   const [showModal, setShowModal] = useRecoilState(modalState)
   const [currentMovie, setCurrentMovie] = useRecoilState(movieState)
   const [movie, setMovie] = useState<Movie | null>(null)
+  
 
   useEffect(() => {
     setMovie(
@@ -54,18 +55,18 @@ function Slider({ netflixOriginals }: Props) {
                 {movie?.overview}
               </p>
               <div className="flex space-x-3">
-                <button className="bannerButton bg-white text-black">
-                  <FaPlay
-                    className="h-4 w-4 text-black md:h-7 md:w-7"
-                    onClick={() => {
-                      setCurrentMovie(movie)
-                      setShowModal(true)
-                    }}
-                  />
+                <button className="bannerButton bg-white text-black" onClick={() => {
+                    setCurrentMovie(movie)
+                    setShowModal(true)
+                  }}>
+                  <FaPlay className="h-4 w-4 text-black md:h-7 md:w-7" />
                   Play
                 </button>
 
-                <button className="bannerButton bg-[gray]/70">
+                <button
+                  className="bannerButton bg-[gray]/70"
+                  
+                >
                   <InformationCircleIcon className="h-5 w-5 md:h-8 md:w-8" />{' '}
                   More Info
                 </button>
