@@ -16,7 +16,12 @@ To View all available methods you can go to TMDB API documentation [TMDB Documen
 
 ### Requirements
 
-Follow the below mentioned instructions
+You should have the following installed in your system
+
+<ul>
+  <li>Node (latest)</li>
+  <li>Python (latest)</li>
+</ul>
 
 #### Clone the Repository
 ```
@@ -41,7 +46,7 @@ Make a folder named ".env.local" where you need to put all the below mentioned a
 NEXT_PUBLIC_API_KEY = API key from [TMDB](https://developers.themoviedb.org/3)
 
 
-#### Deploy on [Local Host](https://localhost:3000)
+#### Deploy on [Local Host](http://localhost:3000)
 
 ```
 npm start
@@ -52,6 +57,21 @@ npm start
 ```
 npm run dev
 ```
+
+## Server Side
+
+###Building Server
+
+clone the following [Repository](https://github.com/deveshXm/matinee-movie-recommender)
+
+###Running the Server
+
+```
+uvicorn main:app --reload
+```
+
+You can test the GET requests on [Local Host](http://localhost:8000/docs)
+
 
 
 
