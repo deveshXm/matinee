@@ -24,12 +24,12 @@ function Search() {
   }, [ignored])
 
   //taking event value from input field
-  const handleChange = (event) => {
+  const handleChange = (event:any) => {
     setInput(event.target.value)
     console.log('input box:', event.target.value)
   }
   //fetching results when Search button is clicked
-  const handleClick = (event) => {
+  const handleClick = (event:any) => {
     event.preventDefault()
     const response = fetch('http://localhost:8000/' + input).then((res) =>
       res.json()
