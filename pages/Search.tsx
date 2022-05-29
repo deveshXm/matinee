@@ -11,6 +11,8 @@ function Search() {
   const [input, setInput] = useState('')
   const [results, setResults] = useState([])
   const showModal = useRecoilValue(modalState)
+
+  //to immediately update the search results once button is clicked
   const [ignored,forceUpdate] = useReducer(x=>x+1,0)
   
   useEffect(() => {
@@ -19,7 +21,6 @@ function Search() {
         (res) => res.json()
       )
       setResults(response)
-      forceUpdate()
     })()
   }, [ignored])
 
@@ -28,13 +29,17 @@ function Search() {
     setInput(event.target.value)
     console.log('input box:', event.target.value)
   }
+
+  const fetchData = async() => {
+    const response = await fetch('http://localhost:8000/' + input).then((res) =>res.json())
+    forceUpdate()
+  }
+
   //fetching results when Search button is clicked
   const handleClick = (event:any) => {
     event.preventDefault()
-    const response = fetch('http://localhost:8000/' + input).then((res) =>
-      res.json()
-    )
-    console.log(response)
+    fetchData() 
+    
     console.log('on click: ', input)
   }
 
