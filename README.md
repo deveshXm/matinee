@@ -73,5 +73,5 @@ uvicorn main:app --reload
 You can test the GET requests on [Local Host](http://localhost:8000/docs)
 
 
-
+#### I was not able to deploy the FASTApi as my app needed more than 1 GB RAM to run
 
