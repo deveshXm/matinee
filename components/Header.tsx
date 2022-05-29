@@ -1,10 +1,9 @@
 import Image from 'next/image'
 import { BellIcon, SearchIcon } from '@heroicons/react/solid'
-// import useAuth from '../hooks/useAuth'
 import Link from 'next/link'
 import useAuth from '../hooks/useAuth'
 import BasicMenu from './BasicMenu'
-// import BasicMenu from './BasicMenu'
+import Router, { useRouter } from 'next/router'
 
 function Header() {
   const { logout, loading } = useAuth()
@@ -33,17 +32,17 @@ function Header() {
       </div>
 
       <div className="flex cursor-pointer  items-center space-x-4 text-sm font-light text-white">
+        <Link href="/Search">
         <SearchIcon className="sm hidden h-6 w-6 sm:inline" />
+        </Link>
         <p className="hidden lg:inline">Kids</p>
         <BellIcon className="h-6 w-6" />
-        {/* <Link href="/account"> */}
         <img
           onClick={logout}
           src="https://rb.gy/g1pwyx"
           alt=""
           className="cursor-pointer rounded"
         />
-        {/* </Link> */}
       </div>
     </div>
   )

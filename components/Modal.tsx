@@ -35,9 +35,6 @@ function Modal() {
   const [addedToList, setAddedToList] = useState(false)
   const { user } = useAuth()
   const [movies, setMovies] = useState<DocumentData[] | Movie[]>([])
-  const router = useRouter()
-
-  
 
   const toastStyle = {
     background: 'white',
@@ -48,8 +45,6 @@ function Modal() {
     borderRadius: '9999px',
     maxWidth: '1000px',
   }
-
-  
 
   useEffect(() => {
     if (!movie) return
@@ -70,7 +65,6 @@ function Modal() {
       if (data?.genres) {
         setGenres(data.genres)
       }
-
     }
 
     fetchMovie()
@@ -93,7 +87,7 @@ function Modal() {
   }, [db, movie?.id])
 
   // Check if the movie is already in the user's list
-  useEffect(
+    useEffect(
     () =>
       setAddedToList(
         movies.findIndex((result) => result.data().id === movie?.id) !== -1
@@ -131,8 +125,16 @@ function Modal() {
       )
     }
   }
+  
+  // If play button is clicked then send movie name to model
+  const handleName = () => {
+    const movie_name = `${movie?.title || movie?.original_name}`
+    const response = fetch('http://localhost:8000/' + movie_name).then((res) => res.json())
+    console.log(movie_name)    
+  }
 
-  console.log(addedToList)
+ 
+  // console.log(addedToList)
 
   return (
     <MuiModal
@@ -160,10 +162,15 @@ function Modal() {
           />
           <div className="absolute bottom-10 flex w-full items-center justify-between px-10">
             <div className="flex space-x-2">
-              <button className="flex items-center gap-x-2 rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6]" >
-                <FaPlay className="h-7 w-7 text-black" />
-                Play
-              </button>
+             
+                <button
+                  className="flex items-center gap-x-2 rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6]"
+                  onClick = {handleName}                  
+                >
+                  <FaPlay className="h-7 w-7 text-black" />
+                  Play
+                </button>
+         
               <button className="modalButton" onClick={handleList}>
                 {addedToList ? (
                   <CheckIcon className="h-7 w-7" />
@@ -197,8 +204,10 @@ function Modal() {
                 HD
               </div>
             </div>
-            <div className='flex flex-col gap-x-10 gap-y-4 font-semibold md:flex-row'>
-              <p className='w-5/6'>{movie?.title || movie?.name || movie?.original_name}</p>
+            <div className="flex flex-col gap-x-10 gap-y-4 font-semibold md:flex-row">
+              <p className="w-5/6">
+                {movie?.title || movie?.name || movie?.original_name}
+              </p>
             </div>
             <div className="flex flex-col gap-x-10 gap-y-4 font-light md:flex-row">
               <p className="w-5/6">{movie?.overview}</p>

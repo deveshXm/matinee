@@ -7,45 +7,43 @@ import { Movie } from '../typings'
 import Row from '../components/Row'
 import Genre from '../components/Genre'
 import useAuth from '../hooks/useAuth'
-import {modalState, movieState} from '../atoms/modalAtom'
+import { modalState, movieState } from '../atoms/modalAtom'
 import { useRecoilValue } from 'recoil'
 import Modal from '../components/Modal'
-import { useEffect, useState } from 'react'
-
+import { useCallback, useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import { responseSymbol } from 'next/dist/server/web/spec-compliant/fetch-event'
 
 interface Props {
   recommended: Movie[]
-  netflixOriginals: Movie[]
-  // trendingNow: Movie[]
-  // topRated: Movie[]
-  // actionMovies: Movie[]
-  // comedyMovies: Movie[]
-  // horrorMovies: Movie[]
-  // romanceMovies: Movie[]
-  // documentaries: Movie[]
-  // products: Product[]
+  popularMovies: Movie[]
+  trendingNow: Movie[]
+  topRated: Movie[]
+  actionMovies: Movie[]
+  comedyMovies: Movie[]
+  horrorMovies: Movie[]
+  romanceMovies: Movie[]
+  documentaries: Movie[]
 }
 
 const Home = ({
   recommended,
-  netflixOriginals,
-  // actionMovies,
-  // comedyMovies,
+  popularMovies,
+  actionMovies,
+  comedyMovies,
   // documentaries,
-  // horrorMovies,
-  // romanceMovies,
+  horrorMovies,
+  romanceMovies,
   // topRated,
-  // trendingNow,
-}: // products,
+  trendingNow,
+}: 
 Props) => {
-
-  const {loading} = useAuth()
+  const { loading } = useAuth()
   const showModal = useRecoilValue(modalState)
-  console.log(netflixOriginals)
 
-  if(loading) return null
+  if (loading) return null
   return (
-    <div className="relative h-screen scrollbar-hide overflow-y-auto bg-hero-pattern bg-cover bg-no-repeat">
+    <div className="relative h-screen overflow-y-auto bg-hero-pattern bg-cover bg-no-repeat scrollbar-hide">
       <Head>
         <title>matinee</title>
         <link rel="icon" href="/favicon.ico" />
@@ -53,19 +51,18 @@ Props) => {
       <Header />
 
       <main className="  mt-20 pl-2.5 pb-24 lg:space-y-24 lg:pl-0 ">
-        <Slider netflixOriginals={netflixOriginals} />
+        <Slider popularMovies={popularMovies} />
         <section className="mx-10 space-y-14">
           <Genre />
-          <Row title="Recommended" movies={recommended} />
-          {/* <Row title="Top Rated" movies={topRated} />
-          <Row title="Action Thrillers" movies={actionMovies} />
+          <Row title="Based on your Last Watch" movies={recommended} />
+          <Row title="Trending Now" movies={popularMovies} />
+          <Row title="Action Movies" movies={actionMovies} />
           <Row title="Comedies" movies={comedyMovies} />
           <Row title="Scary Movies" movies={horrorMovies} />
           <Row title="Romance Movies" movies={romanceMovies} />
-          <Row title="Documentaries" movies={documentaries} /> */}
         </section>
       </main>
-      {showModal && <Modal/>}
+      {showModal && <Modal />}
     </div>
   )
 }
@@ -76,38 +73,36 @@ export const getServerSideProps = async () => {
 
   const [
     recommended,
-    netflixOriginals,
-    // trendingNow,
+    popularMovies,
+    trendingNow,
     // topRated,
-    // actionMovies,
-    // comedyMovies,
-    // horrorMovies,
-    // romanceMovies,
-    // documentaries,
+    actionMovies,
+    comedyMovies,
+    horrorMovies,
+    romanceMovies,
   ] = await Promise.all([
-    fetch('http://localhost:5000/movies').then((res) => res.json()),
-    fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
-    // fetch(requests.fetchTrending).then((res) => res.json()),
+    fetch('http://localhost:8000/items/predict').then((res) => res.json()),
+    fetch(requests.fetchpopularMovies).then((res) => res.json()),
+    fetch(requests.fetchTrending).then((res) => res.json()),
     // fetch(requests.fetchTopRated).then((res) => res.json()),
-    // fetch(requests.fetchActionMovies).then((res) => res.json()),
-    // fetch(requests.fetchComedyMovies).then((res) => res.json()),
-    // fetch(requests.fetchHorrorMovies).then((res) => res.json()),
-    // fetch(requests.fetchRomanceMovies).then((res) => res.json()),
+    fetch(requests.fetchActionMovies).then((res) => res.json()),
+    fetch(requests.fetchComedyMovies).then((res) => res.json()),
+    fetch(requests.fetchHorrorMovies).then((res) => res.json()),
+    fetch(requests.fetchRomanceMovies).then((res) => res.json()),
     // fetch(requests.fetchDocumentaries).then((res) => res.json()),
   ])
 
   return {
     props: {
       recommended: recommended,
-      netflixOriginals: netflixOriginals.results,
-      // trendingNow: trendingNow.results,
+      popularMovies: popularMovies.results,
+      trendingNow: trendingNow.results,
       // topRated: topRated.results,
-      // actionMovies: actionMovies.results,
-      // comedyMovies: comedyMovies.results,
-      // horrorMovies: horrorMovies.results,
-      // romanceMovies: romanceMovies.results,
+      actionMovies: actionMovies.results,
+      comedyMovies: comedyMovies.results,
+      horrorMovies: horrorMovies.results,
+      romanceMovies: romanceMovies.results,
       // documentaries: documentaries.results,
-      // products,
     },
   }
 }
