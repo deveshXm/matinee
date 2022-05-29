@@ -60,11 +60,11 @@ npm run dev
 
 ## Server Side
 
-###Building Server
+### Building Server
 
 clone the following [Repository](https://github.com/deveshXm/matinee-movie-recommender)
 
-###Running the Server
+### Running the Server
 
 ```
 uvicorn main:app --reload
