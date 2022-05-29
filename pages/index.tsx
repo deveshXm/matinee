@@ -57,7 +57,7 @@ Props) => {
           <Row title="Based on your Last Watch" movies={recommended} />
           <Row title="Trending Now" movies={popularMovies} />
           <Row title="Action Movies" movies={actionMovies} />
-          <Row title="Comedies" movies={comedyMovies} />
+          <Row title="Comedy Movies" movies={comedyMovies} />
           <Row title="Scary Movies" movies={horrorMovies} />
           <Row title="Romance Movies" movies={romanceMovies} />
         </section>
