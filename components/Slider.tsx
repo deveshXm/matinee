@@ -11,10 +11,10 @@ import { useRecoilState } from 'recoil'
 import { modalState, movieState } from '../atoms/modalAtom'
 
 interface Props {
-  netflixOriginals: Movie[]
+  popularMovies: Movie[]
 }
 
-function Slider({ netflixOriginals }: Props) {
+function Slider({ popularMovies }: Props) {
   const [showModal, setShowModal] = useRecoilState(modalState)
   const [currentMovie, setCurrentMovie] = useRecoilState(movieState)
   const [movie, setMovie] = useState<Movie | null>(null)
@@ -22,9 +22,9 @@ function Slider({ netflixOriginals }: Props) {
 
   useEffect(() => {
     setMovie(
-      netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)]
+      popularMovies[Math.floor(Math.random() * popularMovies.length)]
     )
-  }, [netflixOriginals])
+  }, [popularMovies])
 
   console.log(movie)
 
@@ -38,7 +38,7 @@ function Slider({ netflixOriginals }: Props) {
         showThumbs={false}
         interval={4000}
       >
-        {netflixOriginals.map((movie) => (
+        {popularMovies.map((movie) => (
           <div className="flex min-h-[35vh] flex-col space-y-2 py-1 pl-10 sm:min-h-[55vh] md:space-y-4 lg:h-[85vh] lg:justify-end lg:pb-12">
             <div className="absolute top-0 left-0 -z-10 min-h-[35vh] w-screen sm:min-h-[55vh] md:min-h-[95vh]">
               <Image

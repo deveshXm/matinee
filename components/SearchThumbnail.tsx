@@ -8,25 +8,23 @@ interface Props{
     movie:Movie
 }
 
-function Thumbnail({movie}:Props) {
+function SearchThumbnail({movie}:Props) {
 
   const [showModal, setShowModal] = useRecoilState(modalState)
   const [currentMovie, setCurrentMovie] = useRecoilState(movieState)
   
   return (
-    < div className="brand genre bg-black  flex max-w-[1400px] min-w-[45vw] md:min-w-[16vw] items-center justify-around font-normal text-xl md:font-medium md:text-[1.5rem] md:hover:text-shadow-xl md:hover:scale-110 text-transparent" onClick={() => {
+    < div className={`relative h-48 min-w-[140px] cursor-pointer transition duration-200 ease-out md:h-[73vh] md:min-w-[25vw] md:hover:scale-105 md:hover:border-4 md:hover:rounded-md border-white border-2 rounded-md border-opacity-40 md:hover:border-opacity-100`} onClick={() => {
       setCurrentMovie(movie)
       setShowModal(true)}}>
         <Image
-        src={`https://image.tmdb.org/t/p/w500${
-          movie.backdrop_path 
+        src={`https://image.tmdb.org/t/p/w500${movie.poster_path
         }`}
         className="rounded-sm object-cover md:rounded"
         layout="fill"
       />
-      <p className='relative'>{movie?.title || movie?.original_name}</p>
     </div>
   )
 }
 
-export default Thumbnail
+export default SearchThumbnail

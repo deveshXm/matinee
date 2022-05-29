@@ -2,7 +2,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import { DocumentData } from 'firebase/firestore'
 import { useRef, useState } from 'react'
 import { Movie } from '../typings'
-import Thumbnail from './Thumbnail'
+import SearchThumbnail from './SearchThumbnail'
 
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
   movies: Movie[] 
 }
 
-function Row({ title, movies }: Props) {
+function SearchRow({ title, movies }: Props) {
   const rowRef = useRef<HTMLDivElement>(null)
   const [isMoved, setIsMoved] = useState(false)
 
@@ -29,12 +29,12 @@ function Row({ title, movies }: Props) {
 
   return (
     <div className="h-40 space-y-0.5 md:space-y-2">
-      <h2 className="w-76 cursor-pointer text-sm font-semibold text-[#e5e5e5] transition duration-200 hover:text-white md:text-2xl">
+      <h2 className="w-56 cursor-pointer text-sm font-semibold text-[#e5e5e5] transition duration-200 hover:text-white md:text-2xl">
         {title}
       </h2>
       <div className="group relative">
         <ChevronLeftIcon
-          className={`absolute top-0 bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100 group-hover:text-white ${
+          className={`absolute top-0 bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-105 group-hover:opacity-100 group-hover:text-white ${
             !isMoved && 'hidden'
           }`}
           onClick={() => handleClick('left')}
@@ -44,7 +44,7 @@ function Row({ title, movies }: Props) {
           ref={rowRef}
         >
           {movies.map((movie) => (
-            <Thumbnail key={movie.id} movie={movie} />
+            <SearchThumbnail key={movie.id} movie={movie} />
           ))}
         </div>
         <ChevronRightIcon
@@ -56,4 +56,4 @@ function Row({ title, movies }: Props) {
   )
 }
 
-export default Row
+export default SearchRow
