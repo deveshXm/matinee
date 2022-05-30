@@ -5,14 +5,14 @@ Hello Everyone!
 I made this Project under MS ENGAGE 2022 Program.<br>
 I have used the following Technologies in this Project.<br>
 
-#####FRONT-END
+##### FRONT-END
 <ul>
   <li>Node Js v(16.15.0)</li>
   <li>Tailwind CSS v(2.0)</li>
   <li>TMDB Api</li>
 </ul>
 
-#####BACK-END
+##### BACK-END
 <ul>
   <li>Python </li>
   <li>Fast API </li>
