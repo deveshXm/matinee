@@ -62,13 +62,11 @@ npm run dev
 
 ### Building Server
 
-clone the following [Repository](https://github.com/deveshXm/matinee-movie-recommender)
-
-download Similarity.pkl from [Here](https://drive.google.com/drive/folders/1kFh1G94VDNXGnUD0QO8i2IrsQzZqM2jF?usp=sharing)
-place the Similarity.pkl in the server folder.
+clone the following [Repository](https://github.com/deveshXm/movie-recommendation-algorithm)
 
 ### Running the Server
 
+simply go to cmd and type the follwing command
 ```
 uvicorn main:app --reload
 ```
