@@ -90,7 +90,7 @@ Go to the following repository and follow the instructions mentioned in ReadMe [
 
 simply go to cmd and type the follwing command
 ```
-uvicorn main:app --reload
+uvicorn main:app --port 8000 --reload
 ```
 
 You can test the GET requests on localhost:8000/docs
