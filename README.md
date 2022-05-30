@@ -81,7 +81,7 @@ npm run dev
 
 ### Building Server
 
-clone the following [Repository](https://github.com/deveshXm/movie-recommendation-algorithm)
+Go to the following repository and follow the instructions mentioned in ReadMe [Repository](https://github.com/deveshXm/movie-recommendation-algorithm)
 
 ### Running the Server
 
