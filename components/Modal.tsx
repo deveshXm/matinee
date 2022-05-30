@@ -53,7 +53,7 @@ function Modal() {
         `https://api.themoviedb.org/3/${
           movie?.media_type === 'tv' ? 'tv' : 'movie'
         }/${movie?.id}?api_key=${
-          process.env.NEXT_PUBLIC_API_KEY
+          "0092ad3d52a414b557e84706ad391d41"
         }&language=en-US&append_to_response=videos`
       ).then((response) => response.json())
       if (data?.videos) {
@@ -159,7 +159,8 @@ function Modal() {
             style={{ position: 'absolute', top: '0', left: '0' }}
             playing
             muted={muted}
-          />
+          >
+          </ReactPlayer>
           <div className="absolute bottom-10 flex w-full items-center justify-between px-10">
             <div className="flex space-x-2">
              
