@@ -52,13 +52,6 @@ git clone https://github.com/deveshXm/matinee.git
 npm install
 ```
 
-### Requriements before running the application
-
-Make a file named ".env.local" in the root where you need to put all the below mentioned api key with the exact same variable name
-<br>
-<br>
-NEXT_PUBLIC_API_KEY = API key from [TMDB](https://developers.themoviedb.org/3)
-
 #### Build the application
 
 ```
