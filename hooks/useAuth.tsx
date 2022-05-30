@@ -6,6 +6,7 @@ import {
   User,
 } from 'firebase/auth'
 
+
 import { useRouter } from 'next/router'
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { auth } from '../firebase'
@@ -32,12 +33,17 @@ interface AuthProviderProps {
   children: React.ReactNode
 }
 
+
+//Creating Custom hook for authentication
+
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const router = useRouter()
   const [user, setUser] = useState<User | null>(null)
   const [error, setError] = useState(null)
   const [initialLoading, setInitialLoading] = useState(true)
   const [loading, setLoading] = useState(false)
+  
+  //if not logged in then send the user to Login 
 
   useEffect(
     () =>
@@ -58,7 +64,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     [auth]
   )
 
-  //sign up function
+  //sign up function taking email and password as input
 
   const signUp = async (email: string, password: string) => {
     setLoading(true)
@@ -73,7 +79,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       .finally(() => setLoading(false))
   }
 
-  //sign in function
+  //sign in function taking email and password as input
 
   const signIn = async (email: string, password: string) => {
     setLoading(true)
@@ -86,6 +92,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       .catch((error) => alert(error.message))
       .finally(() => setLoading(false))
   }
+
+  //logout function
 
   const logout = async () => {
     setLoading(true)
@@ -111,7 +119,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 }
 
 // Let's only export the `useAuth` hook instead of the context.
-// We only want to use the hook directly and never the context comopnent.
+// We only want to use the hook directly and never the context component.
 export default function useAuth() {
   return useContext(AuthContext)
 }

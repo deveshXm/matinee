@@ -9,7 +9,7 @@ interface Props {
   title: string
   movies: Movie[] 
 }
-
+//taking title and movie json response as input
 function SearchRow({ title, movies }: Props) {
   const rowRef = useRef<HTMLDivElement>(null)
   const [isMoved, setIsMoved] = useState(false)

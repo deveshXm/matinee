@@ -12,7 +12,6 @@ import { useRecoilValue } from 'recoil'
 import Modal from '../components/Modal'
 
 //defining response data types
-
 interface Props {
   recommended: Movie[]
   popularMovies: Movie[]
@@ -86,21 +85,20 @@ export const getServerSideProps = async () => {
     recommended,
     popularMovies,
     trendingNow,
-    // topRated,
     actionMovies,
     comedyMovies,
     horrorMovies,
     romanceMovies,
+
+    //fetching json responses and stroing them in objects
   ] = await Promise.all([
     fetch('http://localhost:8000/items/predict').then((res) => res.json()),
     fetch(requests.fetchpopularMovies).then((res) => res.json()),
     fetch(requests.fetchTrending).then((res) => res.json()),
-    // fetch(requests.fetchTopRated).then((res) => res.json()),
     fetch(requests.fetchActionMovies).then((res) => res.json()),
     fetch(requests.fetchComedyMovies).then((res) => res.json()),
     fetch(requests.fetchHorrorMovies).then((res) => res.json()),
     fetch(requests.fetchRomanceMovies).then((res) => res.json()),
-    // fetch(requests.fetchDocumentaries).then((res) => res.json()),
   ])
 
   return {
@@ -108,12 +106,10 @@ export const getServerSideProps = async () => {
       recommended: recommended,
       popularMovies: popularMovies.results,
       trendingNow: trendingNow.results,
-      // topRated: topRated.results,
       actionMovies: actionMovies.results,
       comedyMovies: comedyMovies.results,
       horrorMovies: horrorMovies.results,
       romanceMovies: romanceMovies.results,
-      // documentaries: documentaries.results,
     },
   }
 }

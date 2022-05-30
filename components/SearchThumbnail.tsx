@@ -8,6 +8,7 @@ interface Props{
     movie:Movie
 }
 
+//taking movie as prop
 function SearchThumbnail({movie}:Props) {
 
   const [showModal, setShowModal] = useRecoilState(modalState)

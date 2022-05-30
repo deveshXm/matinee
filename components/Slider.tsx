@@ -1,4 +1,5 @@
 import React from 'react'
+//caraousal library and css files
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 import { Carousel } from 'react-responsive-carousel'
 import { Movie } from '../typings'
@@ -30,6 +31,7 @@ function Slider({ popularMovies }: Props) {
 
   return (
     <section className="mx-auto mt-3 min-h-[35vh] w-[95vw]  text-white shadow-2xl hover:cursor-pointer sm:h-[55vh] md:h-[95vh] lg:h-[85vh]">
+      {/* Making caraousal */}
       <Carousel
         autoPlay
         infiniteLoop

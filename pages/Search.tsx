@@ -55,6 +55,8 @@ function Search() {
         <h2 className=" -mt-8 bg-gradient-to-r  from-sky-500 to-indigo-500 bg-clip-text text-3xl font-extrabold text-transparent cursor-pointer">
           matinee
         </h2></Link>
+
+        {/* Search Field */}
         <div className="input-group relative ml-10 mb-4 flex md:w-[50vw]">
           
             <input
@@ -80,7 +82,7 @@ function Search() {
           <SearchRow title="Results" movies={results} />
         </div>
       </div>
-
+      {/* calling modal when clicked on movie poster */}
       {showModal && <Modal />}
     </div>
   )

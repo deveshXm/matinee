@@ -10,6 +10,7 @@ interface Props {
   movies: Movie[] 
 }
 
+//taking title and movies json response as input
 function Row({ title, movies }: Props) {
   const rowRef = useRef<HTMLDivElement>(null)
   const [isMoved, setIsMoved] = useState(false)
