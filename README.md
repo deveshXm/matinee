@@ -2,7 +2,7 @@
 
 ### About
 Hello Everyone!
-I made this Project under MS ENGAGE 2022 Program.<br>
+I made this Project under MS ENGAGE 2022 Program. Matinee is a web application which will recommend you movies based on you last watch.<br>
 I have used the following Technologies in this Project.<br>
 
 ##### FRONT-END
