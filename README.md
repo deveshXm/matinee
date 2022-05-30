@@ -1,6 +1,25 @@
 # Matinee
 
 ### About
+Hello Everyone!
+I made this Project under MS ENGAGE 2022 Program.<br>
+I have used the following Technologies in this Project.<br>
+
+#####FRONT-END
+<ul>
+  <li>Node Js v(16.15.0)</li>
+  <li>Tailwind CSS v(2.0)</li>
+  <li>TMDB Api</li>
+</ul>
+
+#####BACK-END
+<ul>
+  <li>Python </li>
+  <li>Fast API </li>
+</ul>
+
+
+
 A nextjs application to watch movies and get recommended based on your preferences.
 [matinee](https://matinee.vercel.app/)
 
