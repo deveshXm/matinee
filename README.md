@@ -46,7 +46,7 @@ Make a folder named ".env.local" where you need to put all the below mentioned a
 NEXT_PUBLIC_API_KEY = API key from [TMDB](https://developers.themoviedb.org/3)
 
 
-#### Deploy on [Local Host](http://localhost:3000)
+#### Deploy on localhost:3000
 
 ```
 npm start
@@ -70,7 +70,7 @@ clone the following [Repository](https://github.com/deveshXm/matinee-movie-recom
 uvicorn main:app --reload
 ```
 
-You can test the GET requests on [Local Host](http://localhost:8000/docs)
+You can test the GET requests on localhost:8000/docs
 
 
 #### I was not able to deploy the FASTApi as my app needed more than 1 GB RAM to run
