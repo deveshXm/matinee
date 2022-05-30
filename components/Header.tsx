@@ -1,9 +1,7 @@
-import Image from 'next/image'
 import { BellIcon, SearchIcon } from '@heroicons/react/solid'
 import Link from 'next/link'
 import useAuth from '../hooks/useAuth'
 import BasicMenu from './BasicMenu'
-import Router, { useRouter } from 'next/router'
 
 function Header() {
   const { logout, loading } = useAuth()

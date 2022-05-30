@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { signInWithRedirect } from 'firebase/auth'
 import useAuth from '../hooks/useAuth'
 
 interface Inputs {
@@ -19,7 +18,7 @@ function login() {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>()
-  
+
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     if(login){
       await signIn(data.email,data.password)
