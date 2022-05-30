@@ -10,9 +10,8 @@ import useAuth from '../hooks/useAuth'
 import { modalState, movieState } from '../atoms/modalAtom'
 import { useRecoilValue } from 'recoil'
 import Modal from '../components/Modal'
-import { useCallback, useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import { responseSymbol } from 'next/dist/server/web/spec-compliant/fetch-event'
+
+//defining response data types
 
 interface Props {
   recommended: Movie[]
@@ -26,6 +25,7 @@ interface Props {
   documentaries: Movie[]
 }
 
+//passing json responses as props
 const Home = ({
   recommended,
   popularMovies,
@@ -48,12 +48,21 @@ Props) => {
         <title>matinee</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      {/* Header */}
+
       <Header />
 
       <main className="  mt-20 pl-2.5 pb-24 lg:space-y-24 lg:pl-0 ">
+
+        {/* React Responsive Caraousel */}
+
         <Slider popularMovies={popularMovies} />
         <section className="mx-10 space-y-14">
           <Genre />
+
+          {/* generating rows */}
+
           <Row title="Based on your Last Watch" movies={recommended} />
           <Row title="Trending Now" movies={popularMovies} />
           <Row title="Action Movies" movies={actionMovies} />
@@ -62,6 +71,8 @@ Props) => {
           <Row title="Romance Movies" movies={romanceMovies} />
         </section>
       </main>
+
+      {/* setting up Modal */}
       {showModal && <Modal />}
     </div>
   )

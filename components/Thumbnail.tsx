@@ -8,6 +8,7 @@ interface Props{
     movie:Movie
 }
 
+//Movie Thumbnail componenets in Row
 function Thumbnail({movie}:Props) {
 
   const [showModal, setShowModal] = useRecoilState(modalState)
