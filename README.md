@@ -67,6 +67,9 @@ npm run build
 
 #### Deploy on localhost:3000
 
+test email - test@gmail.com
+test password - 123456
+
 ```
 npm start
 ```
