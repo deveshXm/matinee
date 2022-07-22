@@ -17,7 +17,7 @@ function Search() {
   
   useEffect(() => {
     (async () => {
-      const response = await fetch('http://localhost:8000/items/predict').then(
+      const response = await fetch('http://localhost:8000/movies/predict').then(
         (res) => res.json()
       )
       setResults(response)
@@ -31,15 +31,24 @@ function Search() {
   }
 
   const fetchData = async() => {
-    const response = await fetch('http://localhost:8000/' + input).then((res) =>res.json())
+    
+    const response = await fetch('http://localhost:8000/' + input,{
+      method:'POST',
+      body: JSON.stringify({results}),
+      headers: {
+        'Content-type': 'application/json',
+      }, 
+      cache: 'no-cache',
+    })
+    const data = await response.json()
+    console.log(data)
     forceUpdate()
   }
 
   //fetching results when Search button is clicked
   const handleClick = (event:any) => {
     event.preventDefault()
-    fetchData() 
-    
+    fetchData()     
     console.log('on click: ', input)
   }
 
