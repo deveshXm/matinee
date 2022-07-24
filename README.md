@@ -92,6 +92,3 @@ You can test the GET requests on localhost:8000/docs
 
 ### Once all the above steps are done you can go to the website on localhost:3000 
 
-
-#### I was not able to deploy on heroku the FASTApi as my app needed more than 1 GB RAM to run
-
