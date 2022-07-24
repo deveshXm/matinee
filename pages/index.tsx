@@ -29,10 +29,8 @@ const Home = ({
   popularMovies,
   actionMovies,
   comedyMovies,
-  // documentaries,
   horrorMovies,
   romanceMovies,
-  // topRated,
   trendingNow,
 }: 
 Props) => {
@@ -91,7 +89,7 @@ export const getServerSideProps = async () => {
 
     //fetching json responses and stroing them in objects
   ] = await Promise.all([
-    fetch('http://localhost:8000/items/predict').then((res) => res.json()),
+    fetch('http://localhost:8000/movies/predict').then((res) => res.json()),
     fetch(requests.fetchpopularMovies).then((res) => res.json()),
     fetch(requests.fetchTrending).then((res) => res.json()),
     fetch(requests.fetchActionMovies).then((res) => res.json()),

@@ -126,10 +126,16 @@ function Modal() {
   }
   
   // If play button is clicked then send movie name to model
-  const handleName = () => {
+  const handleName = async() => {
     const movie_name = `${movie?.title || movie?.original_name}`
-    const response = fetch('http://localhost:8000/' + movie_name).then((res) => res.json())
-    console.log(movie_name)    
+    const response = await fetch('http://localhost:8000/' + movie_name,{
+      method:'POST',
+      headers: {
+        'Content-type': 'application/json',
+      }, 
+      cache: 'no-cache',
+    })
+    console.log(response)    
   }
 
  
